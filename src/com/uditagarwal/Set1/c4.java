@@ -1,9 +1,7 @@
 package com.uditagarwal.Set1;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 
 /**
  * Created by uditagarwal on 1/29/16.

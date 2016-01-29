@@ -10,22 +10,6 @@ public class Base64Encoder {
         assert mapper.length() == 4;
     }
 
-    private String hexToBin(char hex) {
-        int i = Integer.parseInt(Character.toString(hex), 16);
-        String bin = String.format("%04d", Integer.parseInt(Integer.toBinaryString(i)));
-        return bin;
-
-    }
-
-    private String hexToBin(String s) {
-        String bin = "";
-        for (int i = 0; i < s.length(); i++){
-            char c = s.charAt(i);
-            bin += hexToBin(c);
-        }
-        return bin;
-    }
-
     String base64Block(String bits) {
         Integer decimal = Integer.parseInt(bits, 2);
         return "" + mapper.charAt(decimal); // To convert char to string.
@@ -71,7 +55,7 @@ public class Base64Encoder {
     }
 
     public String base64EncodingFromHex(String hexString) {
-        String binaryString = hexToBin(hexString);
+        String binaryString = BaseConverter.hexToBin(hexString);
         return binaryToBase64(binaryString);
     }
 }

@@ -7,7 +7,7 @@ import com.uditagarwal.FixedXOR;
  * Created by uditagarwal on 1/29/16.
  */
 public class c3 {
-    static public String singleByteXORCipher(String textBin, String keyBin) {
+    static public String singleByteXORText(String textBin, String keyBin) {
         int blockLength = 8;
         assert textBin.length() % blockLength == 0;
         String cipher = "";
@@ -25,7 +25,7 @@ public class c3 {
         String cipherBin = BaseConverter.hexToBin(cipherHex);
         for (int i = 0; i < 255; i++ ) {
             String keyBin = String.format("%08d",Integer.parseInt(Integer.toBinaryString(i)));
-            System.out.println((char) i + " : " + singleByteXORCipher(cipherBin, keyBin));
+            System.out.println((char) i + " : " + singleByteXORText(cipherBin, keyBin));
         }
     }
 }

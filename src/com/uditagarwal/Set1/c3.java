@@ -20,12 +20,40 @@ public class c3 {
         return cipher;
     }
 
-    static public void solve() {
-        String cipherHex = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736";
+    static public int characterFrequency(String text) {
+        int freq = 0;
+        for(int i = 0; i < text.length(); i++) {
+            char ch = text.charAt(i);
+            if((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')) {
+                freq ++;
+            }
+        }
+        return freq;
+    }
+
+    static public String guessedTextForSingleByteXORCipher(String cipherHex) {
         String cipherBin = BaseConverter.hexToBin(cipherHex);
+
+        String winnerText = "";
+        int maxFreq = 0;
+        int winnerKey = -1;
+
         for (int i = 0; i < 255; i++ ) {
             String keyBin = String.format("%08d",Integer.parseInt(Integer.toBinaryString(i)));
-            System.out.println((char) i + " : " + singleByteXORText(cipherBin, keyBin));
+            String text = singleByteXORText(cipherBin, keyBin);
+            int freq = characterFrequency(text);
+            if (freq > maxFreq) {
+                maxFreq = freq;
+                winnerText = text;
+                winnerKey = i;
+            }
+
         }
+        return winnerText;
+    }
+
+    static public void solve() {
+        String cipherHex = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736";
+        System.out.println(guessedTextForSingleByteXORCipher(cipherHex));
     }
 }

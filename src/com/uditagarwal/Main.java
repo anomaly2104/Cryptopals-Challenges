@@ -2,9 +2,9 @@ package com.uditagarwal;
 
 public class Main {
     public static void main(String[] args) {
-        String hexString = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d";
+        String hexString1 = "1c0111001f010100061a024b53535009181c";
+        String hexString2 = "686974207468652062756c6c277320657965";
 
-        Base64Encoder encoder = new Base64Encoder();
-        System.out.println("Base 64: " + encoder.base64EncodingFromHex(hexString));
+        System.out.println("XOR Hex string: " + BaseConverter.binToHex(FixedXOR.binaryXOR(BaseConverter.hexToBin(hexString1), BaseConverter.hexToBin(hexString2))));
     }
 }

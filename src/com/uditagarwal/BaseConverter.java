@@ -17,4 +17,16 @@ public class BaseConverter {
         }
         return bin;
     }
+
+    static public String binToHex(String bin) {
+        int blockLength = 4;
+        assert bin.length() % blockLength == 0;
+        String result = "";
+        for(int i = 0; i < bin.length(); i += blockLength) {
+            String block = bin.substring(i, i + blockLength);
+            int decimal = Integer.parseInt(block, 2);
+            result += Integer.toHexString(decimal);
+        }
+        return result;
+    }
 }

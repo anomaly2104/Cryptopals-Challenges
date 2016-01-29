@@ -1,9 +1,9 @@
 package com.uditagarwal;
 
-import com.uditagarwal.Set1.c3;
+import com.uditagarwal.Set1.c4;
 
 public class Main {
     public static void main(String[] args) {
-        c3.solve();
+        c4.solve();
     }
 }

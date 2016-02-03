@@ -3,6 +3,7 @@ package com.uditagarwal.Set1;
 import com.sun.javafx.image.impl.ByteArgb;
 import com.uditagarwal.BaseConverter;
 import com.uditagarwal.RepeatingKeyXOR;
+import org.apache.commons.codec.binary.Hex;
 
 import java.util.Arrays;
 
@@ -14,6 +15,7 @@ public class c5 {
         String text = "Burning 'em, if you ain't quick and nimble\nI go crazy when I hear a cymbal";
         String key = "ICE";
 
-        System.out.println(RepeatingKeyXOR.repeatingKeyXOR(text.getBytes(), key.getBytes()));
+        String result = Hex.encodeHexString(RepeatingKeyXOR.repeatingKeyXOR(text.getBytes(), key.getBytes()));
+        System.out.println(result);
     }
 }

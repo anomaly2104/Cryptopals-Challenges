@@ -1,7 +1,5 @@
 package com.uditagarwal.Set1;
 
-import com.sun.javafx.image.impl.ByteArgb;
-import com.uditagarwal.BaseConverter;
 import com.uditagarwal.RepeatingKeyXOR;
 import org.apache.commons.codec.binary.Hex;
 

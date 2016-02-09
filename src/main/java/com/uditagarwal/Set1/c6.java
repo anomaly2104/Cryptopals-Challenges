@@ -103,7 +103,7 @@ public class c6 {
                 byte[] key = new byte[1];
                 key[0] = (byte)j;
                 String result = new String(RepeatingKeyXOR.repeatingKeyXOR(transposedChunks[i], key));
-                int charFreq = c3.characterFrequency(result);
+                int charFreq = characterFrequency(result);
 //                System.out.println((char)j + ":" + result + ":" + charFreq);
 
                 if (charFreq > maxChar) {
@@ -112,6 +112,20 @@ public class c6 {
                 }
             }
         }
+        System.out.println(Character.isLetter(','));
         System.out.println(new String(resultKey));
+        System.out.println(new String(RepeatingKeyXOR.repeatingKeyXOR(ciphertextInBytes, resultKey)));
+    }
+
+    static public int characterFrequency(String text) {
+        int freq = 0;
+
+        for(int i = 0; i < text.length(); i++) {
+            char ch = text.charAt(i);
+            if((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || ch == ' ') {
+                freq ++;
+            }
+        }
+        return freq;
     }
 }
